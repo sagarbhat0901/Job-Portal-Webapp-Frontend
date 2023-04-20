@@ -1,0 +1,60 @@
+<div>
+  <div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Online Job Portal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!loggedIn; else loggedOut">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+
+            <ng-template #loggedOut>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/" (click)="logOut()">Log Out</a>
+              </li>
+            </ng-template>
+
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+  <footer class="pt-4 my-md-5 pt-md-5 border-top" style="background-color: #d4d4d4;">
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="card bg-transparent" style="border: none;">
+          <img src="../assets/pkwareLogo.png" alt="Company Logo">
+        </div>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <h5>Navigate</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-dark text-decoration-none" href="/">Home</a></li>
+          <li><a class="link-dark text-decoration-none" href="/about">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-5 text-center">
+      <p>Created and Deployed By Sagar Bhat with ❤️</p>
+      <p><b>Copyright &#169; Dataguise-A PKWARE Company</b></p>
+    </div>
+  </footer>
+</div>
