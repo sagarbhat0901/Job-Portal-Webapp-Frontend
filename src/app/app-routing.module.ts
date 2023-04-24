@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { CoverletterComponent } from './components/coverletter/coverletter.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     loadChildren: () => import('./module/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'coverletter',
+    component: CoverletterComponent
   }
 ];
 

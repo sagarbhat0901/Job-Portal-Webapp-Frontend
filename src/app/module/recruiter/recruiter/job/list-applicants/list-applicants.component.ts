@@ -49,16 +49,17 @@ export class ListApplicantsComponent implements OnInit {
 
   }
 
-  // viewApplication(freelancerId: number, jobId: number) {
-  //   this.jobApplicationService.findByFreelancerId(jobId, freelancerId)
-  //     .subscribe(
-  //       data=>{
-  //         console.log(data);
-  //       },
-  //       err=>{
-  //         alert(err.error);
-  //       }
-  //     )
-  // }
+  viewApplication(freelancerId: number, jobId: number) {
+    this.router.navigate(['/coverletter', { freelancerId, jobId }]);
+    this.jobApplicationService.findByFreelancerId(jobId, freelancerId)
+      .subscribe(
+        data=>{
+          console.log(data);
+        },
+        err=>{
+          alert(err.error);
+        }
+      )
+  }
 
 }

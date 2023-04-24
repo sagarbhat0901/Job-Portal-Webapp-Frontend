@@ -1,0 +1,36 @@
+.sort-box {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  select {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 8px) center;
+    cursor: pointer;
+  }
+  
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 4px #ccc;
+  }
+  
+  option[value="dummy"] {
+    display: none;
+  }
+  

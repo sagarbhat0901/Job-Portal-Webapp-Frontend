@@ -45,7 +45,7 @@ export class JobapplicationService {
   }
 
   //GET Method
-  public findByFreelancerId(jobId: number, freelancerId: number) {
+  public findByFreelancerId(jobId: number, freelancerId: number): Observable<any> {
     console.log("Find Applications for a Job method");
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(`${this.baseUrl}/findByFrId/job/${jobId}/frId/${freelancerId}`,{headers, responseType: 'json'});
@@ -55,6 +55,7 @@ export class JobapplicationService {
 
 export class JobApplication {
   jobId: number;
+  jobTitle: string;
   coverLetter: string;
   freelancerId: number;
 }

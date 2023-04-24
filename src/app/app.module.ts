@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { CoverletterComponent } from './components/coverletter/coverletter.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FindBookmarkfreelancerByidComponent,
     LoginComponent,
     FooterComponent,
+    CoverletterComponent,
     
   ],
   imports: [

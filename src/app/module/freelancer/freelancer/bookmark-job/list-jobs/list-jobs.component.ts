@@ -6,6 +6,7 @@ import { JobTypeService } from 'src/app/services/jobtype.service';
 import { QualificationRequiredService } from 'src/app/services/qualificationrequired.service';
 import { SkillService } from 'src/app/services/skill.service';
 import { WorkTypeService } from 'src/app/services/worktype.service';
+import { JobExperienceService } from 'src/app/services/jobexperience.service';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class ListJobsComponent implements OnInit {
   allWorkTypes: any[] = [];
   allJobTypes: any[] = [];
   allQualifications: any[] = [];
+  allJobExperiences: any[] = [];
 
   setFilterName(num: number) {
     switch (num) {
@@ -57,13 +59,16 @@ export class ListJobsComponent implements OnInit {
   }
 
 
-  constructor(private skillsService: SkillService, private jobTypeServices: JobTypeService, private workTypeService: WorkTypeService, private qualificationRequiredService: QualificationRequiredService, private bookmarkedJobService: BookmarkedjobService, private jobService: JobService) { }
+  constructor(private skillsService: SkillService, private jobTypeServices: JobTypeService, private workTypeService: WorkTypeService, private qualificationRequiredService: QualificationRequiredService,private jobExperienceServices: JobExperienceService, private bookmarkedJobService: BookmarkedjobService, private jobService: JobService) { }
   bookmarkedJob: BookmarkedJob = new BookmarkedJob();
   ngOnInit(): void {
     this.jobService.getAllActive()
       .subscribe(
         data => {
+          
+          console.log(data);
           this.activeJobsList = data;
+          
         },
         err => {
           alert(err.error);
@@ -92,6 +97,12 @@ export class ListJobsComponent implements OnInit {
       next: (response) => {
         this.allQualifications = response;
         console.log(this.allQualifications)
+      }
+    })
+    this.jobExperienceServices.getAllJobExperiences().subscribe({
+      next: (response) => {
+        this.allJobExperiences = response;
+        console.log(this.allJobExperiences)
       }
     })
 
@@ -129,5 +140,49 @@ export class ListJobsComponent implements OnInit {
       }
     });
   }
+  onSortChange(event: any) {
 
-}
+     const sortBy = event.target.value;
+    
+     console.log('inside sorting function');
+    
+     if (sortBy === 'salary') {
+    
+     this.jobService.sortBySalary().subscribe((response) => {
+    
+    this.activeJobsList=response;
+    
+     });
+    
+     }
+     if (sortBy === 'experience') {
+    
+      this.jobService.sortByExp().subscribe((response) => {
+     
+     this.activeJobsList=response;
+     
+      });
+     
+      }
+      if (sortBy === 'salarydesc') {
+    
+        this.jobService.sortBySalaryDesc().subscribe((response) => {
+       
+       this.activeJobsList=response;
+       
+        });
+       
+        }
+        if (sortBy === 'experiencedesc') {
+       
+         this.jobService.sortByExpDesc().subscribe((response) => {
+        
+        this.activeJobsList=response;
+        
+         });
+        
+         }
+     
+
+ 
+}}

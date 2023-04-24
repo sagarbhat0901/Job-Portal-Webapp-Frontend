@@ -54,7 +54,8 @@ export class JobService {
   public getAllActive(): Observable<any> {
     console.log("Get All Active Jobs Method");
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.get(`${this.baseUrl}/getAllActive`, { headers, responseType: 'json' }); 
+    console.log(this.http.get(`http://localhost:8080/job/getAllActive`, { headers, responseType: 'json' }))
+    return this.http.get(`http://localhost:8080/job/getAllActive`, { headers, responseType: 'json' }); 
   }
 
   public getFilterData(filterName:string,filterValue:string):Observable<any>{
@@ -62,6 +63,31 @@ export class JobService {
     return this.http.get(`${this.baseUrl}/getFilterJobs/${filterName}/${filterValue}`, { headers, responseType: 'json' });
 
   }
+
+  public sortBySalary(): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log(this.http.get<any>(`${this.baseUrl}/sortBySal`));
+    return this.http.get<any>(`${this.baseUrl}/sortBySal` ,{ headers, responseType: 'json' }); 
+  }
+
+  public sortByExp(): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log(this.http.get<any>(`${this.baseUrl}/sortByExp`));
+    return this.http.get<any>(`${this.baseUrl}/sortByExp` ,{ headers, responseType: 'json' }); 
+  }
+
+  public sortBySalaryDesc(): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log(this.http.get<any>(`${this.baseUrl}/sortBySalDesc`));
+    return this.http.get<any>(`${this.baseUrl}/sortBySalDesc` ,{ headers, responseType: 'json' }); 
+  }
+
+  public sortByExpDesc(): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log(this.http.get<any>(`${this.baseUrl}/sortByExpDesc`));
+    return this.http.get<any>(`${this.baseUrl}/sortByExpDesc` ,{ headers, responseType: 'json' }); 
+  }
+
 }
 
 export class Job {
@@ -71,8 +97,10 @@ export class Job {
   recruiterId: number;
   jobTitle: string;
   jobDescription: string;
+  jobSalary: string;
   length: number;
   type_id: number;
   work_id: number;
   qualification_id: number;
+  exp_id: number;
 }

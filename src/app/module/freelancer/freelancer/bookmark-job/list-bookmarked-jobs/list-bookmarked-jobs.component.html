@@ -7,15 +7,25 @@
                 <th>Job Title</th>
                 <th>Skill</th>
                 <th>Actions</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let job of bookmarksList">
+            <tr *ngFor="let job of bookmarksList; let i = index;">
+                <ng-container *ngFor="let job1 of jList; let j = index;">
+                  <ng-container *ngIf="i === j">
+            
                 <td>{{job.id}}</td>
                 <td>{{job.jobName}}</td>
                 <td>{{job.skillName}}</td>
                 <td><button class="btn btn-warning" (click)="applyToJob(job.jobId)">Apply to Job</button></td>
+                <td>{{job1.freelancerId}}</td>  
+                <td> {{job.freelancerId}}</td>
+              </ng-container>
+            </ng-container>
             </tr>
+            
+
         </tbody>
     </table>
 </div>

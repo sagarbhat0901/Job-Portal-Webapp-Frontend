@@ -1,5 +1,5 @@
 <div class="container-fluid overflow-hidden text-center">
-    <h4>Create A new Job Opening</h4>
+    <h4>Create A New Job</h4>
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 card bg-light bg-gradient border border-5 shadow">
@@ -12,6 +12,10 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Job Description</span>
                         <textarea class="form-control" formControlName="jobDescription"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Salary(In LPA)</span>
+                        <input class="form-control" type="text" name="jobSalary" id="jobSalary" formControlName="jobSalary">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Skill</span>
@@ -37,8 +41,12 @@
                             <option *ngFor="let qualificationRequired1 of qualificationRequired" value="{{qualificationRequired1.qualification_id}}">{{qualificationRequired1.qualification_type}}</option>
                         </select>
                     </div>
-                    
-                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Experience</span>
+                        <select class="form-select" name="Job Experience List" id="jobExperienceList" formControlName="exp_id">
+                            <option *ngFor="let jobExperience1 of jobExperience" value="{{jobExperience1.exp_id}}">{{jobExperience1.job_exp}}</option>
+                        </select>
+                    </div>
                     <div class="input-group d-grid gap-2 col-6 mx-auto">
                         <button class="btn btn-outline-primary" type="submit" (click)="onSubmit()">Post Job</button>
                     </div>

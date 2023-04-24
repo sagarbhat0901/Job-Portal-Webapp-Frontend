@@ -1,0 +1,25 @@
+
+  <table class="table table-hover table-striped table-success">
+    
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Cover Letter</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let jobapp of jobApplication">
+               
+
+                <td *ngIf="jobapp.freelancerId === freelancerId && jobapp.jobId === jobId">{{ jobapp.jobTitle }}</td>
+                <td *ngIf="jobapp.freelancerId === freelancerId && jobapp.jobId === jobId">{{ jobapp.coverLetter }}</td>
+            
+            
+            
+            
+        </tr>
+    </tbody>
+   
+</table>
+  
