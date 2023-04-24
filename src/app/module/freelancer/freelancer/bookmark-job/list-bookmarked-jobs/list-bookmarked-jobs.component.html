@@ -11,16 +11,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let job of bookmarksList; let i = index;">
-                <ng-container *ngFor="let job1 of jList; let j = index;">
-                  <ng-container *ngIf="i === j">
+            <tr *ngFor="let job of bookmarksList;">
+                <ng-container *ngFor="let job1 of jList;">
+                  <ng-container *ngIf="job.jobId === job1.jobId">
             
                 <td>{{job.id}}</td>
                 <td>{{job.jobName}}</td>
                 <td>{{job.skillName}}</td>
                 <td><button class="btn btn-warning" (click)="applyToJob(job.jobId)">Apply to Job</button></td>
-                <td>{{job1.freelancerId}}</td>  
-                <td> {{job.freelancerId}}</td>
+                <td><ng-container *ngIf="job1.freelancerId === job.freelancerId">
+                    Job Offered
+                  </ng-container>
+                  <ng-container *ngIf="job1.freelancerId !== job.freelancerId">
+                    Not Offered
+                  </ng-container>
               </ng-container>
             </ng-container>
             </tr>
