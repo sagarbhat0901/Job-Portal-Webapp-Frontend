@@ -14,6 +14,7 @@ export class ListBookmarkedJobsComponent implements OnInit {
   freelancerId: number = Number(localStorage.getItem('freelancerId'));
   freelancerName: string;
   jList: any[] = [];
+ 
   
   constructor(private bookmarkedJobService: BookmarkedjobService, private freelancerService: FreelancerService, private router: Router, private route: ActivatedRoute,
     private jService: JobService) { }
@@ -51,12 +52,57 @@ export class ListBookmarkedJobsComponent implements OnInit {
             alert(err.error);
           }
         );
-
+        
         
   }
 
   applyToJob(jobId: number){
     this.router.navigate(['apply', jobId], {relativeTo: this.route.parent});
+    
   }
 
-}
+  printJobDetails(job1: any) {
+    // retrieve the job details from the server
+    
+          // display the job details in the job-details element
+          const jobDetails = document.querySelector('.job-details');
+          jobDetails.innerHTML = `
+          <h1> CONGRATULATIONS , YOU HAVE THE OFFER !!!!!</h1>
+            <h3>${job1.jobTitle}</h3>
+            <p><strong>Job ID:</strong> ${job1.jobId}</p>
+            <p><strong>Description:</strong> ${job1.jobDescription}</p>
+            <p><strong>Skills Required:</strong> ${job1.skillName}</p>
+            <p><strong>Salary:</strong> ${job1.jobSalary}</p>
+            <p><strong>Experience Required:</strong> ${job1.jobExperienceName}</p>
+            <p><strong>Qualification Required:</strong> ${job1.qualificationRequiredName}</p>
+            <p><strong>Job Type:</strong> ${job1.jobTypeName}</p>
+            <p><strong>Work Type:</strong> ${job1.workTypeName}</p>
+            
+          `;
+          
+          // print the job details
+          const printContents = jobDetails.innerHTML;
+          const originalContents = document.body.innerHTML;
+          document.body.innerHTML = printContents;
+          window.print();
+          document.body.innerHTML = originalContents;
+  }
+        
+      
+
+// printJobDetails(jobDetails: any) {
+//   let printContents = jobDetails.innerHTML;
+//   let originalContents = document.body.innerHTML;
+
+//   document.body.innerHTML = printContents;
+
+//   window.print();
+
+//   document.body.innerHTML = originalContents;
+// }
+
+  
+      }   
+
+
+

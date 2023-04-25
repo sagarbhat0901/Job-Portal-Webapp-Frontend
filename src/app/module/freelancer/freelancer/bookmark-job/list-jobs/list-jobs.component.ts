@@ -68,7 +68,7 @@ export class ListJobsComponent implements OnInit {
           
           console.log(data);
           this.activeJobsList = data;
-          
+
         },
         err => {
           alert(err.error);
@@ -143,6 +143,7 @@ export class ListJobsComponent implements OnInit {
   onSortChange(event: any) {
 
      const sortBy = event.target.value;
+     console.log(event)
     
      console.log('inside sorting function');
     
