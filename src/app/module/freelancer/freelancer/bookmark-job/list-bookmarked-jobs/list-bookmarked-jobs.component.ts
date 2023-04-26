@@ -67,8 +67,8 @@ export class ListBookmarkedJobsComponent implements OnInit {
           // display the job details in the job-details element
           const jobDetails = document.querySelector('.job-details');
           jobDetails.innerHTML = `
-          <h1> CONGRATULATIONS , YOU HAVE THE OFFER !!!!!</h1>
-            <h3>${job1.jobTitle}</h3>
+          <h3><strong>CONGRATULATIONS,</strong> ${job1.freelancerName} <strong>YOU HAVE THE OFFER !!!!!</strong></h3>
+            <h5>${job1.jobTitle}</h5>
             <p><strong>Job ID:</strong> ${job1.jobId}</p>
             <p><strong>Description:</strong> ${job1.jobDescription}</p>
             <p><strong>Skills Required:</strong> ${job1.skillName}</p>

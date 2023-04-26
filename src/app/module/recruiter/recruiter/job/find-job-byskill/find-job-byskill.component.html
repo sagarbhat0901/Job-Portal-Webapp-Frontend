@@ -10,20 +10,24 @@
                             <th>Job Code</th>
                             <th>Job Title</th>
                             <th>Job Description</th>
+                            <th>Salary</th>
                             <th>Skill</th>
-                            <th>Job Type</th>
-                            <th>Work Type</th>
+                            <th>JobType</th>
+                            <th>WorkType</th>
                             <th>Quaification</th>
+                            <th>Experience</th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let job of jobsList">
                                 <td>{{job.jobId}}</td>
                                 <td>{{job.jobTitle}}</td>
                                 <td>{{job.jobDescription}}</td>
+                                <td>{{job.jobSalary}}</td>
                                 <td>{{job.skillName}}</td>
                                 <td>{{job.jobTypeName}}</td>
                                 <td>{{job.workTypeName}}</td>
                                 <td>{{job.qualificationRequiredName}}</td>
+                                <td>{{job.jobExperienceName}}</td>
                             </tr>
                         </tbody>
                     </table>

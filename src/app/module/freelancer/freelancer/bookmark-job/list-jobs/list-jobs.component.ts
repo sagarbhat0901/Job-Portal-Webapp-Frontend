@@ -181,6 +181,14 @@ export class ListJobsComponent implements OnInit {
         this.activeJobsList=response;
         
          });
+        }
+        if (sortBy === 'iddesc') {
+       
+          this.jobService.sortByIdDesc().subscribe((response) => {
+         
+         this.activeJobsList=response;
+         
+          });
         
          }
      

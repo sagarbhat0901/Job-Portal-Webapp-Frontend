@@ -88,6 +88,12 @@ export class JobService {
     return this.http.get<any>(`${this.baseUrl}/sortByExpDesc` ,{ headers, responseType: 'json' }); 
   }
 
+  public sortByIdDesc(): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log(this.http.get<any>(`${this.baseUrl}/sortByIdDesc`));
+    return this.http.get<any>(`${this.baseUrl}/sortByIdDesc` ,{ headers, responseType: 'json' }); 
+  }
+
 }
 
 export class Job {
